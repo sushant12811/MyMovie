@@ -132,7 +132,7 @@
         </RelativeLayout>
 
     <Button
-        android:id="@+id/signInButton"
+        android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"

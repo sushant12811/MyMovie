@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,35 +12,31 @@
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find Movies, Tv series, and more.."
+        android:text="Find Movies, TV series, and more.."
         android:textColor="@color/white"
         android:textSize="27dp"
+        android:padding="16dp"
+        android:layout_marginStart="60dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <EditText
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchBar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Sherlock Holmes"
-        android:background="@drawable/search_bar_background"
-        android:padding="12dp"
-        android:textColor="@color/white"
-        android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="10dp"
-        android:textColorHint="@color/gray"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
+        android:background="@drawable/textfield_background"
+        android:hint="Search"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/titleText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginTop="16dp"
-        app:layout_constraintMarginStart="16dp"
-        app:layout_constraintMarginEnd="16dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
         app:tabIndicatorColor="@color/orange"
@@ -53,36 +50,30 @@
             android:id="@+id/tabMovies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movies" />
+            android:text="Movies"/>
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabTVSeries"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tv Series" />
+            android:text="TV Series"/>
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabDocumentary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Documentary" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabSports"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sports" />
+            android:text="Animation"/>
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:padding="16dp"
         app:layout_constraintTop_toBottomOf="@id/tabLayout"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -91,9 +82,12 @@
         android:background="@color/black"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
-        app:menu="@drawable/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/bottom_navigation_menu">
+        >
 
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/bg_gray"
+    android:padding="16dp">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="290dp"
+        android:layout_height="350dp"
+        android:src="@drawable/onboard2"
+
+        />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favourite Movies"
+        android:textColor="@color/orange"
+        android:textSize="24sp"
+
+        android:gravity="center"
+        android:paddingTop="10dp"/>
+</LinearLayout>

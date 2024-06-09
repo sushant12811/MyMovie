@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 
@@ -42,6 +43,13 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-auth")
+    implementation ("com.google.firebase:firebase-firestore:25.0.0")
+    implementation ("androidx.viewpager2:viewpager2:1.1.0")
+    implementation ("com.tbuonomo:dotsindicator:4.3")
+
+
+
+
 
 
 
