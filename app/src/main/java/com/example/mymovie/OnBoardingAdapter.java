@@ -39,7 +39,7 @@ public class OnBoardingAdapter extends RecyclerView.Adapter<OnBoardingAdapter.on
                         .apply();
 
                 // Navigate to the MainActivity
-                context.startActivity(new Intent(context, MainActivity.class));
+                context.startActivity(new Intent(context, LoginActivity.class));
 
             });
         }
