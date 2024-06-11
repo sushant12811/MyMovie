@@ -9,6 +9,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Setup Bottom Navigation View
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        LinearLayout movie1Layout = findViewById(R.id.movie1Layout);
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -54,6 +58,18 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
+        });
+
+        movie1Layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the movie ID (replace with how you store/access movie IDs)
+                int movieId = 123;
+
+                Intent intent = new Intent(MainActivity.this, MovieDetailActivity.class);
+                intent.putExtra("MOVIE_ID", movieId);
+                startActivity(intent);
+            }
         });
     }
 
