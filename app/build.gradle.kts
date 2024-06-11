@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services")
+
 }
 
 
@@ -46,6 +47,8 @@ dependencies {
     implementation ("com.google.firebase:firebase-firestore:25.0.0")
     implementation ("androidx.viewpager2:viewpager2:1.1.0")
     implementation ("com.tbuonomo:dotsindicator:4.3")
+    implementation ("com.google.android.gms:play-services-auth:18.1.0")
+    implementation ("com.github.bumptech.glide:glide:4.11.0")
 
 
 

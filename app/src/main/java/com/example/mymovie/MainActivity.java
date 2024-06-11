@@ -1,62 +1,93 @@
 package com.example.mymovie;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
+import static android.widget.Toast.makeText;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Arrays;
+import Authentication.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth fAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            int id = item.getItemId();
+        fAuth = FirebaseAuth.getInstance();
 
-            if (id == R.id.navigation_logout) {
-                performLogout();
+        // Setup Bottom Navigation View
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+
+                if (R.id.navigation_home == item.getItemId()) {
+                    Toast.makeText(MainActivity.this, "Home Selected", Toast.LENGTH_SHORT).show();
+                    return true;
+                } else if (R.id.navigation_favourite == item.getItemId()) {
+
+                    Toast.makeText(MainActivity.this, "Favourite Selected", Toast.LENGTH_SHORT).show();
+                    return true;
+                } else if (R.id.navigation_addToWatchlist == item.getItemId()) {
+                    makeText(MainActivity.this, "Watchlist Selected", Toast.LENGTH_SHORT).show();
+                    return true;
+                } else if (R.id.navigation_logout == item.getItemId()) {
+                    {
+                        performLogout();
+                        return true;
+                    }
+                }
                 return true;
+
             }
 
-            // Handle other menu items if needed
-            // ...
 
-            return false;
+        });
+    }
+
+
+    //perform logout
+    private void performLogout() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Logout Confirmation");
+        builder.setMessage("Are you sure you want to log out?");
+
+        // Set the positive button with a click listener
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                fAuth.signOut();
+
+                Toast.makeText(MainActivity.this, "Logged out successfully!", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
         });
 
-        mAuth = FirebaseAuth.getInstance();
+        // Set the negative button with a click listener
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
 
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
-
-    private void performLogout() {
-        mAuth.signOut();
-
-        Toast.makeText(MainActivity.this, "Logged out successfully!", Toast.LENGTH_SHORT).show();
-
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
-        finish(); // Optional: Finish MainActivity
-    }
-
-
-
 }

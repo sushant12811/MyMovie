@@ -1,13 +1,9 @@
 package com.example.mymovie;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
-
-import com.example.mymovie.OnBoardingAdapter;
-import com.example.mymovie.R;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 import java.util.Arrays;
 

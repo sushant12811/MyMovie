@@ -10,10 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
+import Authentication.LoginActivity;
+
 public class OnBoardingAdapter extends RecyclerView.Adapter<OnBoardingAdapter.onBoardingViewHolder> {
 
  List<Integer> layouts;
-    private Context context;
+     Context context;
 
     public OnBoardingAdapter(Context context, List<Integer> layouts) {
         this.context = context;

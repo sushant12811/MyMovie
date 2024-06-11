@@ -86,7 +86,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_navigation_menu">
-        >
+
 
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
