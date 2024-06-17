@@ -8,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -33,43 +31,36 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         LinearLayout movie1Layout = findViewById(R.id.movie1Layout);
-        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
 
-                if (R.id.navigation_home == item.getItemId()) {
-                    Toast.makeText(MainActivity.this, "Home Selected", Toast.LENGTH_SHORT).show();
-                    return true;
-                } else if (R.id.navigation_favourite == item.getItemId()) {
+            if (R.id.navigation_home == item.getItemId()) {
 
-                    Toast.makeText(MainActivity.this, "Favourite Selected", Toast.LENGTH_SHORT).show();
-                    return true;
-                } else if (R.id.navigation_addToWatchlist == item.getItemId()) {
-                    makeText(MainActivity.this, "Watchlist Selected", Toast.LENGTH_SHORT).show();
-                    return true;
-                } else if (R.id.navigation_logout == item.getItemId()) {
-                    {
-                        performLogout();
-                        return true;
-                    }
-                }
+                Toast.makeText(MainActivity.this, "Home Selected", Toast.LENGTH_SHORT).show();
                 return true;
+            } else if (R.id.navigation_favourite == item.getItemId()) {
 
+                Toast.makeText(MainActivity.this, "Favourite Selected", Toast.LENGTH_SHORT).show();
+                return true;
+            } else if (R.id.navigation_addToWatchlist == item.getItemId()) {
+                makeText(MainActivity.this, "Watchlist Selected", Toast.LENGTH_SHORT).show();
+                return true;
+            } else if (R.id.navigation_logout == item.getItemId()) {
+                {
+                    performLogout();
+                    return true;
+                }
             }
-
+            return true;
 
         });
 
-        movie1Layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get the movie ID (replace with how you store/access movie IDs)
-                int movieId = 123;
+        movie1Layout.setOnClickListener(v -> {
+            // Get the movie ID (replace with how you store/access movie IDs)
+            int movieId = 123;
 
-                Intent intent = new Intent(MainActivity.this, MovieDetailActivity.class);
-                intent.putExtra("MOVIE_ID", movieId);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(MainActivity.this, MovieDetailActivity.class);
+            intent.putExtra("MOVIE_ID", movieId);
+            startActivity(intent);
         });
     }
 
@@ -95,13 +86,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Set the negative button with a click listener
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                dialog.dismiss();
-            }
-        });
+        builder.setNegativeButton("No", (dialog, which) -> dialog.dismiss());
 
         AlertDialog dialog = builder.create();
         dialog.show();
