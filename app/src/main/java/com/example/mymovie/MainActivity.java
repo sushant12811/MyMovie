@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-import Authentication.LoginActivity;
+import com.example.mymovie.Authentication.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 

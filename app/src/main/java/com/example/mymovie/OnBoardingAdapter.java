@@ -10,7 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-import Authentication.LoginActivity;
+import com.example.mymovie.Authentication.LoginActivity;
+import com.example.mymovie.Authentication.StartupActivity;
 
 public class OnBoardingAdapter extends RecyclerView.Adapter<OnBoardingAdapter.onBoardingViewHolder> {
 
@@ -40,8 +41,7 @@ public class OnBoardingAdapter extends RecyclerView.Adapter<OnBoardingAdapter.on
                         .putBoolean("completed", true)
                         .apply();
 
-                // Navigate to the MainActivity
-                context.startActivity(new Intent(context, LoginActivity.class));
+                context.startActivity(new Intent(context, StartupActivity.class));
 
             });
         }
