@@ -19,13 +19,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.mymovie.Authentication.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
-import Authentication.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
