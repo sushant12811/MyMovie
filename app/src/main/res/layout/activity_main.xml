@@ -1,137 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_gray"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/titleText"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Find Movies, TV series, and more.."
-        android:textColor="@color/white"
-        android:textSize="27dp"
-        android:padding="16dp"
-        android:layout_marginStart="60dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/header"
+        app:itemIconSize="30dp"
+        app:itemVerticalPadding="20dp"
+        app:itemTextColor="@color/orange"
+        android:background="@drawable/hover_item_navigation"
+        app:itemIconTint="@color/orange"
+        app:menu="@menu/burger_menu"
+        android:layout_gravity="start" >
+    </com.google.android.material.navigation.NavigationView>
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/textfield_background"
-        android:hint="Search"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:textColor="@color/gray"
-        app:layout_constraintTop_toBottomOf="@+id/titleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_height="match_parent"
+        android:background="@color/bg_gray"
+      >
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        app:tabIndicatorColor="@color/orange"
-        app:tabSelectedTextColor="@color/orange"
-        app:tabTextColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/searchBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabMovies"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Movies"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabTVSeries"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TV Series"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabDocumentary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Animation"/>
-    </com.google.android.material.tabs.TabLayout>
-
-    <LinearLayout
-        android:id="@+id/movieContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:id="@+id/movie1Layout"
+        <RelativeLayout
+            android:id="@id/relative_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_gray"
+                app:titleTextColor="@color/white"
 
-            <ImageView
-                android:id="@+id/movie1Poster"
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/tomorrowland_profile"
-                android:scaleType="centerCrop" />
+                />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find Movies, TV series, and more.."
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                android:padding="10dp"
+                android:layout_marginStart="60dp"
+                />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textfield_background"
+            android:hint="Search"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:textColor="@color/gray"
+            app:layout_constraintTop_toBottomOf="@+id/relative_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:tabIndicatorColor="@color/orange"
+            app:tabSelectedTextColor="@color/orange"
+            app:tabTextColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/searchBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Movies" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabTVSeries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TV Series" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabDocumentary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Animation" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <LinearLayout
+            android:id="@+id/movieContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:id="@+id/movie1Layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
 
-                <TextView
-                    android:id="@+id/movie1Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textColor="@color/white"
-                    android:text="Tomorrowland (2015)" />
+                <ImageView
+                    android:id="@+id/movie1Poster"
+                    android:layout_width="80dp"
+                    android:layout_height="120dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/tomorrowland_profile"
+                    android:scaleType="centerCrop" />
 
-                <TextView
-                    android:id="@+id/movie1Rating"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/white"
-                    android:text="6.3" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/movie1Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:text="Tomorrowland (2015)" />
+
+                    <TextView
+                        android:id="@+id/movie1Rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:text="6.3" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_gray"
+            app:itemTextColor="@color/white"
+            app:itemIconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:menu="@menu/bottom_navigation_menu"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        app:itemIconTint="@drawable/bottom_nav_item_color"
-        app:itemTextColor="@drawable/bottom_nav_item_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/bottom_navigation_menu">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
