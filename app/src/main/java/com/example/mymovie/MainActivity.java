@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("");
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_density_medium_24);
-
-        // Setup DrawerLayout and NavigationView
+//         Setup DrawerLayout and NavigationView
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Navigation", "onNavigationItemSelected: ");
                 int id = item.getItemId();
                 if (id == R.id.settings) {
-                    Log.d("settings", "onNavigationItemSelected: ");
+                    Log.d("Settings", "Settings item clicked");
                     Toast.makeText(MainActivity.this, "Settings Selected", Toast.LENGTH_SHORT).show();
                     return true;
                 } else if (id == R.id.account) {
@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
+
                 return false;
             }
         });

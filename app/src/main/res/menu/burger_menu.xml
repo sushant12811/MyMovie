@@ -1,10 +1,10 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <item
         android:id="@+id/settings"
         android:icon="@drawable/baseline_app_settings_alt_24"
         android:enabled="true"
-        android:clickable="true"
         android:title="Settings"/>
 
     <item
