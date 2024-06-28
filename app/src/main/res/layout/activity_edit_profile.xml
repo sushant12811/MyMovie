@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_image"
-    tools:context=".Authentication.LoginActivity">
+    android:background="@color/bg_gray"
+    tools:context=".EditProfileActivity">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout"
@@ -24,17 +25,50 @@
             android:id="@+id/EditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="60dp"
-            android:text="LogIn"
+            android:text="Edit Profile"
             android:textColor="@color/orange"
             android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
 
         </TextView>
+
+        <RelativeLayout
+            android:id="@+id/fullNameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/EditText">
+
+            <EditText
+                android:id="@+id/fullName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/textfield_background"
+                android:hint="Full Name"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:paddingStart="60dp">
+
+            </EditText>
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/baseline_account_circle_24">
+
+            </ImageView>
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/userLayout"
@@ -43,7 +77,7 @@
             android:layout_margin="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/EditText">
+            app:layout_constraintTop_toBottomOf="@id/fullNameLayout">
 
             <EditText
                 android:id="@+id/userEmail"
@@ -71,7 +105,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/passWordLayout"
+            android:id="@+id/phoneLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="40dp"
@@ -80,12 +114,13 @@
             app:layout_constraintTop_toBottomOf="@id/userLayout">
 
             <EditText
-                android:id="@+id/userPassword"
+                android:id="@+id/phoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/textfield_background"
-                android:hint="Password"
-                android:inputType="textPassword"
+                android:hint="(123)456-7890"
+                android:maxLength="14"
+                android:inputType="phone"
                 android:paddingStart="60dp">
 
             </EditText>
@@ -97,87 +132,61 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:src="@drawable/password">
+                android:src="@drawable/twotone_call_24">
 
             </ImageView>
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/forgotText"
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:id="@+id/locationLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="50dp"
-            android:text="Forgot Password?"
-            android:textColor="@color/orange"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:layout_margin="40dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/passWordLayout">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phoneLayout">
 
-        </TextView>
+            <EditText
+                android:id="@+id/locationText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/textfield_background"
+                android:hint="City, Province"
+                android:paddingStart="60dp">
 
+            </EditText>
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/baseline_location_pin_24">
+
+            </ImageView>
+        </RelativeLayout>
         <Button
-            android:id="@+id/signInButton"
+            android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="50dp"
             android:background="@drawable/button_design"
-            android:text="LogIn"
+            android:text="save"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/passWordLayout">
+            app:layout_constraintTop_toBottomOf="@id/locationLayout">
 
         </Button>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/donotAccountText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don't have an account?"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="55dp"
-        android:textColor="@color/orange"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@id/registerNowText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/registerNowText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register Now"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/orange"
-        android:layout_marginEnd="60dp"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/donotAccountText"
-        app:layout_constraintTop_toBottomOf="@id/layout">
-
-    </TextView>
 
 
-    <ImageView
-        android:id="@+id/googleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/google_image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/donotAccountText">
-
-    </ImageView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

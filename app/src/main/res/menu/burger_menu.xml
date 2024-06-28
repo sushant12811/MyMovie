@@ -1,17 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     >
-
-    <item
-        android:id="@+id/settings"
-        android:icon="@drawable/baseline_app_settings_alt_24"
-        android:enabled="true"
-        android:title="Settings"/>
-
     <item
         android:id="@+id/account"
         android:icon="@drawable/baseline_account_circle_24"
         android:enabled="true"
         android:title="Account"/>
+
+
 
     <item
         android:id="@+id/favourite"
@@ -30,6 +25,13 @@
         android:enabled="true"
         android:icon="@drawable/baseline_currency_exchange_24"
         android:title="Premium"/>
+
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/baseline_app_settings_alt_24"
+        android:enabled="true"
+        android:title="Settings"/>
 
     <item
         android:id="@+id/logout"
