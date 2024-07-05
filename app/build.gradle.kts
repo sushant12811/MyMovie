@@ -42,21 +42,18 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.activity:activity:1.9.0")
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.0")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
     implementation("com.google.firebase:firebase-auth")
     implementation ("com.google.firebase:firebase-firestore:25.0.0")
     implementation ("androidx.viewpager2:viewpager2:1.1.0")
     implementation ("com.tbuonomo:dotsindicator:4.3")
-
     implementation ("com.google.android.gms:play-services-auth:21.2.0")
-    implementation ("com.github.bumptech.glide:glide:4.11.0")
-
-
-
-
-
-
+    implementation ("com.github.bumptech.glide:glide:4.13.1")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.github.bumptech.glide:glide:4.13.1")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.1")
 
 }

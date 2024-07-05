@@ -4,4 +4,42 @@
     <string name="finish">Finish</string>
     <string name="open">Open Navigation Drawer</string>
     <string name="close">Close Navigation Drawer</string>
+
+    <string-array name="movieNameArray">
+        <item>The Farmhouse Restaurant</item>
+        <item>Casa Mia Barrie</item>
+        <item>Grillicious Restaurant and Wine Bar</item>
+        <item>Bâton Rouge Grillhouse and Bar</item>
+        <item>Taj Bistro</item>
+        <item>Il Buco</item>
+        <item>Zio\'s Italian Comfort Food</item>
+        <item>Cottage Canoe Restaurant</item>
+        <item>The Canadian Brewhouse (Barrie)</item>
+        <item>Symposium Cafe Restaurant Barrie</item>
+        <item>Bull and Barrel Pub</item>
+        <item>Chaopaya Thai Restaurant</item>
+
+
+    </string-array>
+
+    <string-array name="movieRatingArray">
+        <item>7.2</item>
+        <item>3.2</item>
+        <item>9.2</item>
+        <item>4.2</item>
+        <item>8.7</item>
+        <item>7.2</item>
+        <item>3.2</item>
+        <item>9.2</item>
+        <item>4.2</item>
+        <item>8.7</item>
+        <item>7.2</item>
+        <item>3.2</item>
+
+
+    </string-array>
+
 </resources>
+
+
+

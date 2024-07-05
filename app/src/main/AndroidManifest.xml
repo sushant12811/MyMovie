@@ -29,7 +29,7 @@
             android:name=".MovieDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".OnBoardingActivity"
+            android:name=".OnBoarding.OnBoardingActivity"
             android:exported="false" />
         <activity
             android:name=".Authentication.RegisterActivity"

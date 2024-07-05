@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mymovie.MainActivity;
-import com.example.mymovie.OnBoardingActivity;
+import com.example.mymovie.OnBoarding.OnBoardingActivity;
 import com.example.mymovie.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
