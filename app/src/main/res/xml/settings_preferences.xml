@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="notification_settings"
+        android:title="Notifications">
+
+        <SwitchPreferenceCompat
+            android:key="notifications"
+            android:title="Enable Notifications"
+            android:summary="Turn notifications on/off" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="privacy_settings"
+        android:title="Privacy">
+
+        <CheckBoxPreference
+            android:key="privacy_policy"
+            android:title="Accept Privacy Policy"
+            android:summary="Select to accept our privacy policy" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="about_section"
+        android:title="About">
+
+        <Preference
+            android:key="about"
+            android:title="About the App"
+            android:summary="This app is designed to provide excellent services and user experience." />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -37,6 +37,7 @@
         <activity
             android:name=".Authentication.ForgotPasswordActivity"
             android:exported="false" />
+        <activity android:name=".SettingsActivity" />
         <activity
             android:name=".Authentication.LoginActivity"
             android:exported="true">
