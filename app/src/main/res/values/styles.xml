@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/bg_gray</item>
+        <item name="colorPrimaryDark">@color/bg_gray</item>
+        <item name="colorAccent">@color/bg_gray</item>
+    </style>
+
+    <!-- Custom Toolbar Style -->
+    <style name="CustomToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/bg_gray</item> <!-- Set background color to match page -->
+        <item name="titleTextColor">@color/orange</item> <!-- Set title text color -->
+        <item name="subtitleTextColor">@color/orange</item> <!-- Set subtitle text color -->
+        <item name="android:textColorPrimary">@color/orange</item>
+        <item name="android:textColorSecondary">@color/orange</item>
+    </style>
+
+</resources>

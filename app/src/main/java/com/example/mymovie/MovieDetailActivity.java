@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.mymovie.API.MovieModelResponse;
@@ -20,11 +21,8 @@ public class MovieDetailActivity extends AppCompatActivity {
     private static final String TAG = "MovieDetailActivity";
 
     private ImageView moviePoster, movieSmallPoster;
-
     private ProgressBar progressBar;
     private TextView movieTitle, movieRating, movieOverview, movieReleaseDate, movieLanguage;
-
-
     private RetrofitResponse retrofitResponse;
 
     @Override
@@ -32,11 +30,21 @@ public class MovieDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
 
+        // Set up the toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Enable the Up button
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
         progressBar = findViewById(R.id.progress_bar);
         moviePoster = findViewById(R.id.movie_poster);
         movieTitle = findViewById(R.id.movie_title);
         movieRating = findViewById(R.id.movie_rating);
-        movieSmallPoster  = findViewById(R.id.movie_small_poster);
+        movieSmallPoster = findViewById(R.id.movie_small_poster);
         movieOverview = findViewById(R.id.movie_overview);
         movieReleaseDate = findViewById(R.id.movie_release_date);
         movieLanguage = findViewById(R.id.movie_language);
@@ -52,8 +60,13 @@ public class MovieDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void fetchMovieDetails(int movieId) {
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed(); // Handle the back button press
+        return true;
+    }
 
+    private void fetchMovieDetails(int movieId) {
         progressBar.setVisibility(View.VISIBLE);
         retrofitResponse.fetchMovieDetails(movieId, new RetrofitResponse.MovieDetailsCallback() {
             @Override
@@ -69,15 +82,14 @@ public class MovieDetailActivity extends AppCompatActivity {
                 Glide.with(MovieDetailActivity.this)
                         .load(movieDetails.getImageUrl())
                         .into(movieSmallPoster);
+                progressBar.setVisibility(View.GONE);
             }
-
 
             @Override
             public void onError(String errorMessage) {
                 Toast.makeText(MovieDetailActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
             }
         });
-
-        progressBar.setVisibility(View.GONE);
     }
 }

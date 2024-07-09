@@ -1,18 +1,20 @@
 package com.example.mymovie;
 
-import static android.content.ContentValues.TAG;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -22,22 +24,32 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class ProfileActivity extends AppCompatActivity {
-    private TextView fullNameProfileUser, emailProfileUser1,emailProfileUser2, phoneProfileUser, locationProfileUser;
+
+    private static final String TAG = "ProfileActivity"; // Define TAG here
+
+    private TextView fullNameProfileUser, emailProfileUser1, emailProfileUser2, phoneProfileUser, locationProfileUser;
     private Button editProfileButton;
-    FirebaseAuth fAuth;
+    private FirebaseAuth fAuth;
     private FirebaseFirestore fbStore;
-
     private FirebaseUser currentUser;
-
-     DocumentReference dbReference;
-
-     String userID;
-
+    private DocumentReference dbReference;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        // Set up the toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Enable the Up button
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         fAuth = FirebaseAuth.getInstance();
         fbStore = FirebaseFirestore.getInstance();
@@ -46,25 +58,47 @@ public class ProfileActivity extends AppCompatActivity {
         initializer();
         documentSnapshotProfileRetrieve();
 
+        // Edit profile button
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), EditProfileActivity.class);
+                intent.putExtra("fullName", fullNameProfileUser.getText().toString());
+                intent.putExtra("email", emailProfileUser1.getText().toString());
+                intent.putExtra("phoneNumber", phoneProfileUser.getText().toString());
+                intent.putExtra("location", locationProfileUser.getText().toString());
+                startActivity(intent);
+                finish();
+            }
+        });
 
-//edit profile button
-editProfileButton.setOnClickListener(new View.OnClickListener() {
+        // Set up the bottom navigation view
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.navigation_home) {
+                    Intent homeIntent = new Intent(ProfileActivity.this, MainActivity.class);
+                    startActivity(homeIntent);
+                    finish();
+                    return true;
+                    // Handle other menu items if necessary
+                }
+                return false;
+            }
+        });
+    }
+
     @Override
-    public void onClick(View view) {
-        Intent intent = new Intent(view.getContext(), EditProfileActivity.class);
-        intent.putExtra("fullName", fullNameProfileUser.getText().toString());
-        intent.putExtra("email", emailProfileUser1.getText().toString());
-        intent.putExtra("phoneNumber", phoneProfileUser.getText().toString());
-        intent.putExtra("location", locationProfileUser.getText().toString());
-        startActivity(intent);
-        finish();
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        // Handle the back button
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
-});
-
-
-    }
-
-
 
     private void initializer() {
         fullNameProfileUser = findViewById(R.id.fullNameTextview);
@@ -73,9 +107,8 @@ editProfileButton.setOnClickListener(new View.OnClickListener() {
         phoneProfileUser = findViewById(R.id.phoneTextView);
         locationProfileUser = findViewById(R.id.locationTextView);
         editProfileButton = findViewById(R.id.editProfileButton);
-
-
     }
+
     private void documentSnapshotProfileRetrieve() {
         if (currentUser != null) {
             userID = currentUser.getUid();
@@ -110,10 +143,7 @@ editProfileButton.setOnClickListener(new View.OnClickListener() {
                 }
             });
         } else {
-
             Log.e(TAG, "No authenticated user found");
         }
     }
-
-
 }

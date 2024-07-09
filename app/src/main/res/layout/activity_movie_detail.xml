@@ -10,138 +10,138 @@
     android:background="@color/bg_gray"
     tools:context=".MovieDetailActivity">
 
+    <!-- Toolbar for Back Button -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/CustomToolbar"
+        app:navigationIcon="@drawable/arrow_back_24" /> <!-- Use your own back arrow drawable -->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        >
+        android:scrollbars="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-    <ImageView
-        android:id="@+id/movie_poster"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="7dp"
-        android:adjustViewBounds="true"
-        android:scaleType = "centerCrop"
-        android:src="@drawable/nopreview"  />
+
+            <ImageView
+                android:id="@+id/movie_poster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="7dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/nopreview" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                >
-        </ProgressBar>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_marginStart="7dp"
-                app:cardCornerRadius="8dp">
-
-            <ImageView
-                android:id="@+id/movie_small_poster"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="center"
-                android:src="@drawable/nopreview" />
-            </androidx.cardview.widget.CardView>
+                android:layout_gravity="center" />
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="184dp"
-                android:layout_weight="8"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/movie_title"
-                    android:layout_width="165dp"
-                    android:layout_height="30dp"
-                    android:text="Tomorrowland"
-                    android:layout_marginStart="15dp"
-                    android:textColor="@color/orange"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="7dp"
+                    app:cardCornerRadius="8dp">
 
-                <TextView
-                    android:id="@+id/movie_rating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/orange"
-                    android:layout_marginStart="15dp"
-                    android:text="6.3/10"
-                    android:textSize="16sp" />
+                    <ImageView
+                        android:id="@+id/movie_small_poster"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="center"
+                        android:src="@drawable/nopreview" />
+                </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/movie_release_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/orange"
-                    android:layout_marginStart="15dp"
-                    android:text="22 May 2015"
-                    android:textSize="16sp" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="184dp"
+                    android:layout_weight="8"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/movie_language"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/orange"
-                    android:layout_marginStart="15dp"
-                    android:text="en"
-                    android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/movie_title"
+                        android:layout_width="165dp"
+                        android:layout_height="30dp"
+                        android:text="Tomorrowland"
+                        android:layout_marginStart="15dp"
+                        android:textColor="@color/orange"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/movie_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/orange"
+                        android:layout_marginStart="15dp"
+                        android:text="6.3/10"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/movie_release_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/orange"
+                        android:layout_marginStart="15dp"
+                        android:text="22 May 2015"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/movie_language"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/orange"
+                        android:layout_marginStart="15dp"
+                        android:text="en"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_bookmark_24"
+                        android:layout_margin="10dp" />
+
+                </LinearLayout>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_bookmark_24"
-                    android:layout_margin="10dp"
-                    >
+                    android:src="@drawable/baseline_favorite_24"
+                    android:layout_marginEnd="10dp" />
 
-                </ImageView>
             </LinearLayout>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_favorite_24"
-                android:layout_marginEnd="10dp"
-                >
 
-            </ImageView>
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/movie_overview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="16sp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:justificationMode="inter_word"
+                    android:textColor="@color/orange"
+                    android:text="Bound by a shared destiny, a bright, optimistic teen bursting with scientific curiosity and a former boy-genius inventor jaded by disillusionment embark on a danger-filled mission to unearth the secrets of an enigmatic place somewhere in time and space that exists in their collective memory as  &#34;Tomorrowland&#34;." />
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+            </LinearLayout>
 
-    >
-
-    <TextView
-        android:id="@+id/movie_overview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:justificationMode="inter_word"
-        android:textColor="@color/orange"
-        android:text="Bound by a shared destiny, a bright, optimistic teen bursting with scientific curiosity and a former boy-genius inventor jaded by disillusionment embark on a danger-filled mission to unearth the secrets of an enigmatic place somewhere in time and space that exists in their collective memory as  &#34;Tomorrowland&#34;." />
-
-</LinearLayout>
         </LinearLayout>
-    </ScrollView>
 
+    </ScrollView>
 
 </LinearLayout>
