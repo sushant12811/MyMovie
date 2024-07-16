@@ -2,8 +2,10 @@ package com.example.mymovie;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +26,7 @@ public class EditProfileActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     private FirebaseFirestore fbStore;
     private FirebaseUser fbUser;
-
+    private ImageButton backButton;
     private EditText fullNameEdit, emailEdit, phoneEdit, locationEdit;
     Button saveButton;
     String userID;
@@ -45,6 +47,16 @@ public class EditProfileActivity extends AppCompatActivity {
         phoneEdit = findViewById(R.id.phoneNumber);
         locationEdit = findViewById(R.id.locationText);
         saveButton = findViewById(R.id.saveButton);
+        backButton = findViewById(R.id.backButton);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // Attach the PhoneNumberFormattingTextWatcher
         phoneEdit.addTextChangedListener(new FormatingPhoneTextWatcher(phoneEdit));
